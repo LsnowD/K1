@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>王国官僚体系生存指南</title>
+    <!-- 新增：移动端友好的中文/哥特字体（需要联网） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <style>
         /* 基础重置与字体 */
         * {
@@ -11,8 +15,12 @@
             padding: 0;
             box-sizing: border-box;
         }
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
         body {
-            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            font-family: "Noto Serif SC", "STSong", "Songti SC", "PingFang SC", "Noto Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif;
             line-height: 1.7;
             color: #e8e0d0;
             background-color: #1a1713;
@@ -85,14 +93,20 @@
         }
         /* 导航栏 */
         #quick-nav {
+            position: -webkit-sticky;
             position: sticky;
             top: 0;
             background-color: rgba(26, 23, 19, 0.95);
+            -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
             padding: 0.5rem 0;
             border-bottom: 1px solid #444;
             z-index: 100;
             text-align: center;
+        }
+        /* 无背后模糊支持时的降级处理 */
+        @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+            #quick-nav { background-color: rgba(26, 23, 19, 0.98); }
         }
         #quick-nav select {
             background-color: #2a2620;
@@ -126,6 +140,9 @@
             h2 {
                 font-size: 1.4rem;
                 margin: 2rem 0 1rem 0;
+            }
+            #quick-nav select {
+                font-size: 16px; /* 避免 iOS 输入放大 */
             }
         }
     </style>
