@@ -632,20 +632,9 @@
         }
         jitterLoop();
 
-        // 2) 标题显影
-        if (!reduce && 'IntersectionObserver' in window) {
-            var io = new IntersectionObserver(function (entries) {
-                entries.forEach(function (e) {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('reveal-in');
-                        io.unobserve(e.target);
-                    }
-                });
-            }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-            Array.prototype.forEach.call(document.querySelectorAll('h2'), function (h) { io.observe(h); });
-        }
+    
 
-        // 3) 偶发掠影
+        // 2) 偶发掠影
         var shadow = document.createElement('div');
         shadow.className = 'raven-shadow';
         document.body.appendChild(shadow);
