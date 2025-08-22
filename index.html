@@ -605,38 +605,20 @@
         
     </section>
 
-    <!-- 修改后的页脚部分 -->
-<footer>
-    <p>
-        <a href="上一页的文件路径.html" class="page-nav prev">◄</a>
-        <span class="nav-spacer"></span>
-        <a href="下一页的文件路径.html" class="page-nav next">►</a>
-    </p>
-    <p>——权限不足——</p>
-</footer>
-
-<!-- 需要添加到样式表中的CSS -->
-<style>
-    /* 分页导航样式 */
-    .page-nav {
-        font-size: 1.5rem;
-        text-decoration: none;
-        transition: text-shadow 0.3s ease;
-    }
-    .page-nav.prev {
-        color: #5606f6; /* 紫色 */
-    }
-    .page-nav.next {
-        color: #2f1cdf; /* 蓝色 */
-    }
-    .page-nav:hover {
-        text-shadow: 0 0 8px currentColor, 0 0 12px currentColor; /* 发光效果 */
-    }
-    .nav-spacer {
-        display: inline-block;
-        width: 4rem; /* 保持4个符号间的距离 */
-    }
-</style>
+    <footer>
+        <div style="display: flex; justify-content: center; gap: 2rem; margin: 1rem 0;">
+            <a href="上一页的文件路径.html" style="color: inherit; text-decoration: none; font-size: 1.5rem; transition: text-shadow 0.3s ease;">◄</a>
+            <a href="下一页的文件路径.html" style="color: inherit; text-decoration: none; font-size: 1.5rem; transition: text-shadow 0.3s ease;">►</a>
+        </div>
+        <p style="text-align: center;">——权限不足——</p>
+    </footer>
+    
+    <style>
+        /* 保留发光效果，颜色会跟随字体颜色 */
+        footer a:hover {
+            text-shadow: 0 0 8px currentColor, 0 0 12px currentColor;
+        }
+    </style>
 
     <script>
     (function () {
@@ -690,6 +672,7 @@
         }
         
         // 新增：滚动旋转效果
+        
         if (!reduce) {
             const ouroborosSvg = document.getElementById('ouroboros-svg');
             let rotation = 0;
