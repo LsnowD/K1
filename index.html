@@ -605,10 +605,38 @@
         
     </section>
 
-    <footer>
-        <p>◄   ►</p>
-        <p>——权限不足——</p>
-    </footer>
+    <!-- 修改后的页脚部分 -->
+<footer>
+    <p>
+        <a href="上一页的文件路径.html" class="page-nav prev">◄</a>
+        <span class="nav-spacer"></span>
+        <a href="下一页的文件路径.html" class="page-nav next">►</a>
+    </p>
+    <p>——权限不足——</p>
+</footer>
+
+<!-- 需要添加到样式表中的CSS -->
+<style>
+    /* 分页导航样式 */
+    .page-nav {
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: text-shadow 0.3s ease;
+    }
+    .page-nav.prev {
+        color: #5606f6; /* 紫色 */
+    }
+    .page-nav.next {
+        color: #2f1cdf; /* 蓝色 */
+    }
+    .page-nav:hover {
+        text-shadow: 0 0 8px currentColor, 0 0 12px currentColor; /* 发光效果 */
+    }
+    .nav-spacer {
+        display: inline-block;
+        width: 4rem; /* 保持4个符号间的距离 */
+    }
+</style>
 
     <script>
     (function () {
